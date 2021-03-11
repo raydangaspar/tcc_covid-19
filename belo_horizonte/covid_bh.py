@@ -38,6 +38,27 @@ def data_covid_bh(df_srag):
     return df_BH
 
 
+def infected_population_covid_bh(df_srag):
+    # Quantidade de pessoas diagnosticadas por Covid-19 em BH
+    df_BH = data_covid_bh(df_srag)
+
+    df_bh_infectded = df_BH[["DT_SIN_PRI", "CLASSI_FIN"]].copy()
+
+    # df.groupby(['A','B']).B.agg('count').to_frame('c').reset_index()
+    df_bh_infectded = (
+        df_bh_infectded.groupby(["DT_SIN_PRI", "CLASSI_FIN"])
+        .DT_SIN_PRI.agg("count")
+        .to_frame("SUM")
+        .reset_index()
+    )
+
+    # tirar o último mês de dados
+    n = 30
+    df_bh_infectded.drop(df_bh_infectded.tail(n).index, inplace=True)
+
+    return df_bh_infectded
+
+
 def uti_data_covid_bh(df_srag):
     # Quantidade de pessoas internadas por Covid-19 em BH x Data de internação
     df_BH = data_covid_bh(df_srag)

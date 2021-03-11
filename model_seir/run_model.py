@@ -1,5 +1,5 @@
 from scipy.integrate import odeint
-from model.derivative import deriv
+from model_seir.derivative import deriv
 
 
 def run_model(params, x):

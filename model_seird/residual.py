@@ -1,4 +1,5 @@
-from model.run_model import run_model
+# to do
+from model_seird.run_model import run_model
 
 
 def get_residual(params, data, x):
