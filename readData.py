@@ -3,7 +3,7 @@ import pandas as pd
 
 def read_data(file_name):
     # database 2019, 2020 and 2021
-    database = f"data/{file_name}"
+    database = f"../data/{file_name}"
 
     date_columns = [
         "DT_NOTIFIC",
