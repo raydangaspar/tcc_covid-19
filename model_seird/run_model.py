@@ -1,4 +1,3 @@
-# to do
 from scipy.integrate import odeint
 from model_seird.derivative import deriv
 
