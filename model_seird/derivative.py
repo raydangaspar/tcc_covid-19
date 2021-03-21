@@ -14,3 +14,13 @@ def deriv(y, t, N, beta, gamma, delta, tay, khi):
     dRdt = I * gamma * (1 - tay)
     dDdt = I * tay * khi
     return dSdt, dEdt, dIdt, dRdt, dDdt
+
+
+def deriv_time_lockdown(y, t, N, beta, gamma, delta, tay, khi):
+    S, E, I, R, D = y
+    dSdt = -beta(t) * S * I / N
+    dEdt = beta(t) * S * I / N - delta * E
+    dIdt = delta * E - (1 - tay) * gamma * I - tay * khi * I
+    dRdt = I * gamma * (1 - tay)
+    dDdt = I * tay * khi
+    return dSdt, dEdt, dIdt, dRdt, dDdt
