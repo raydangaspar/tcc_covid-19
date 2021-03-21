@@ -5,6 +5,8 @@ def read_data(file_name):
     # database 2019, 2020 and 2021
     database = f"../data/{file_name}"
 
+    # database = 'https://s3-sa-east-1.amazonaws.com/ckan.saude.gov.br/SRAG/2020/INFLUD-08-02-2021.csv'
+
     date_columns = [
         "DT_NOTIFIC",
         "DT_SIN_PRI",
