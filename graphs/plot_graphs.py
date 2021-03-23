@@ -1,6 +1,7 @@
 import plotly.graph_objs as go
 import plotly.offline as py
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 
 def plot_graph(df, x_arg, y_arg, graph_title, x_title, y_title):
@@ -63,4 +64,30 @@ def inf_dead(t, i, d=None):
     plt.ylabel("Population")
     plt.legend()
     plt.grid("True")
+    plt.show()
+
+
+def death_rate_graph(df):
+    f, (ax_box, ax_hist) = plt.subplots(2, sharex=True, gridspec_kw={"height_ratios": (0.2, 1)})
+    mean = df["DEATH_UTI_RATE"].mean()
+    median = df["DEATH_UTI_RATE"].median()
+    mode = df["DEATH_UTI_RATE"].mode()[0]
+
+    sns.boxplot(x=df["DEATH_UTI_RATE"], ax=ax_box)
+    ax_box.axvline(mean, color="r", linestyle="--")
+    ax_box.axvline(median, color="g", linestyle="-")
+    ax_box.axvline(mode, color="b", linestyle="-")
+
+    sns.distplot(x=df["DEATH_UTI_RATE"], ax=ax_hist)
+    ax_hist.axvline(mean, color="r", linestyle="--")
+    ax_hist.axvline(median, color="g", linestyle="-")
+    ax_hist.axvline(mode, color="b", linestyle="-")
+
+    plt.legend({"Mean": mean, "Median": median, "Mode": mode})
+
+    print(f"Mean: {mean}")
+    print(f"Median: {median}")
+    print(f"Mode: {mode}")
+
+    ax_box.set(xlabel="")
     plt.show()
