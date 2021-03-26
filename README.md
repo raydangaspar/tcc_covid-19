@@ -15,14 +15,14 @@ Crie uma pasta de nome 'data' no projeto, e coloque o download dos dados dentro 
 
 Alternativamente, há uma forma de executar sem o download prévio dos dados, porém é necessário alterar o arquivo e descomentar o comando, e comentar o comando atual de leitura local do arquivo de dados.
 
-Vá té o arquivo "readData.py"<br/>
-Comente a linha "database = f"../data/{file_name}"", adicionando o "#" antes da linha, dessa forma:
+Vá té o arquivo *readData.py*<br/>
+Comente a linha *database = f"../data/{file_name}"*, adicionando o "#" antes da linha, dessa forma:
 
 ```# database = f"../data/{file_name}"```
 
-Em seguida, decomente a linha "# database = 'https://s3-sa-east-1.amazonaws.com/ckan.saude.gov.br/SRAG/2020/INFLUD-08-02-2021.csv'"<br/>
+Em seguida, decomente a linha *# database = 'https://s3-sa-east-1.amazonaws.com/ckan.saude.gov.br/SRAG/2020/INFLUD-08-02-2021.csv'*<br/>
 Retirando o "#" antes da linha, dessa maneira:<br/>
 
 ```database = 'https://s3-sa-east-1.amazonaws.com/ckan.saude.gov.br/SRAG/2020/INFLUD-08-02-2021.csv'```
 
-Foi realizado dessa maneira por uma limitação do computador utilizado no desenvolvimento do trabalho, onde a opção de utilizar os dados de maneira online ocasionava o travamento da máquina por ausência de recursos computacionais.
+Foi realizado dessa maneira por uma limitação do computador utilizado no desenvolvimento do trabalho, onde a opção de utilizar os dados de maneira online ocasionava o travamento da máquina, devido à ausência de recursos computacionais suficientes.
